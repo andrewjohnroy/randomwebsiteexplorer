@@ -1,13 +1,12 @@
+#!/usr/bin/env python3
 import webbrowser
 import random
 file = open("/usr/share/dict/words", "r")
 list = []
 for line in file:
-    list.append(line)
+    if "\'" not in line:
+        list.append(line)
 
-while True:
-    hostname = list[random.randint(0,len(list))]
-    if "\'" not in hostname:
-        break
+hostname = list[random.randint(0,len(list))]
 
 webbrowser.open("http://www." + hostname + ".com")
