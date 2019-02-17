@@ -5,4 +5,9 @@ list = []
 for line in file:
     list.append(line)
 
-webbrowser.open("http://www." + list[random.randint(0,len(list))][0:-1] + ".com")
+while True:
+    hostname = list[random.randint(0,len(list))]
+    if "\'" not in hostname:
+        break
+
+webbrowser.open("http://www." + hostname + ".com")
